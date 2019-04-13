@@ -16,4 +16,9 @@ class TestServer:
     def test_server_test(self):
         app = create_app('test')
         assert app.config['DB']['addr'] == 'test_host'
+
+    def test_server_api(self):
+        app = create_app('dev')
+        print(app.url_map)
+
     

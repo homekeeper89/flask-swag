@@ -10,6 +10,7 @@ ipdb = "*"
 sqlalchemy = "*"
 pytest = "*"
 flask = "*"
+flask-restplus = "*"
 
 [requires]
 python_version = "3.6"
