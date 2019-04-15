@@ -1,6 +1,6 @@
 # app/main/__init__.py
 from flask import Flask
-from app import user_blue
+from app import *
 from .controller import *
 
 def create_app(config_name):
@@ -8,5 +8,5 @@ def create_app(config_name):
     server_app = Flask(__name__)
     env = config.config_by_name[config_name]
     server_app.config.from_object(env())
-    server_app.register_blueprint(user_blue)
+    server_app.register_blueprint(user_api)
     return server_app
