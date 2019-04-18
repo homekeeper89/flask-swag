@@ -4,7 +4,7 @@ from . import *
 @user_api_md.route('/')
 class UserAPI(Resource):
     def get(self):
-        return jsonify('get'), 200
+        return 'GET'
         
     def post(self):
-        return jsonify('post'), 200
+        return 'POST'
