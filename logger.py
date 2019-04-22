@@ -1,5 +1,7 @@
 import logging
-
+# https://realpython.com/python-logging/
+# https://www.toptal.com/python/in-depth-python-logging
+# https://www.electricmonk.nl/log/2017/08/06/understanding-pythons-logging-module/
 def one():
     logging.debug("debug")
     logging.warning('warning message')
@@ -24,7 +26,7 @@ def four():
     logger = logging.getLogger('hoge.fuga.piyo')
     logger.setLevel(logging.INFO)
 
-    handler = logging.FileHandler('/tmp/test.log')
+    handler = logging.FileHandler('./log/test.log')
     handler.setLevel(logging.INFO)
 
     filter = logging.Filter('hoge.fuga')
@@ -35,8 +37,38 @@ def four():
     logger.addHandler(handler)
     logger.addFilter(filter)
 
+    logger.debug('deb')
+    logger.info('info mess')
+    # 로거 작성 순서
+    # 1. 로거 작성(로거 계층 생성)
+    # 2. 로거 레벨 셋
+    # 3. 핸들러 작성(파일로 할지, print할지 등)
+    # 4. 필터 작성 -> 이건 뭐하는건지 잘 모르겟음
+    # 5. 포맷터 작성 : 로깅 모양 설정
+    # 6. 합치기 : 핸들러 + 포매터 -> 핸들러 + 필터 -> 로거 + 핸들러 -> 로거+필터
+    # 자식 로거는 메시지를 부모에게 전달,
+    # logging.getLogger('hoge.fuga')
+    # 필터는 로거 이름에 따라 실행된다. 현재 필터는 hoge.fuga가 설정되어있음.
 
+def five():
+    logger = logging.getLogger('hoge.fuga.piyo')
+    logger.setLevel(logging.INFO)
 
-if __name__=='__main__':
-    one()
-    two()
+    handler = logging.FileHandler('./log/filter.log')
+    handler.setLevel(logging.INFO)
+
+    filter = logging.Filter('thanks')
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+
+    handler.setFormatter(formatter)
+    handler.addFilter(filter)
+    logger.addHandler(handler)
+    logger.addFilter(filter)
+
+    logger.debug('deb')
+    logger.info('info mess')
+
+if __name__ == "__main__":
+    # four()
+    five()
+    
