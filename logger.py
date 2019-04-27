@@ -74,6 +74,6 @@ def five():
     logger.info('info mess')
 
 if __name__ == "__main__":
-    four()
-    # five()
+    #four()
+    five()
     # three()
