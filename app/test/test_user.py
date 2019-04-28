@@ -14,6 +14,6 @@ class TestUser:
         assert res.status_code == 200
 
     def test_get_user(self,flask_client):
-        url = '/user'
+        url = '/api/v1/user/'
         res = flask_client.get(url)
         assert res.status_code == 200
