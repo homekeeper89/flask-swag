@@ -21,11 +21,11 @@ def filter():
     h3.setLevel(logging.DEBUG)
     huge_fuga_piyo.addHandler(h3)
 
-    filter = logging.Filter('huge') # # 모두 로거 남음
-    filter = logging.Filter('huge.fuga') # 모두 로거 남음
-    filter = logging.Filter('huge.fuga.piyo') # 모두 로거 남음
-    filter = logging.Filter('fuga') # 아무도 안남음
-    filter = logging.Filter('asfd') # 아무도 안남음
+    filter = logging.Filter('huge.fuga.piyo') # # 모두 로거 남음
+    # filter = logging.Filter('huge.fuga') # 모두 로거 남음
+    # filter = logging.Filter('huge.fuga.piyo') # 모두 로거 남음
+    # filter = logging.Filter('fuga') # 아무도 안남음
+    # filter = logging.Filter('asfd') # 아무도 안남음
     huge.addFilter(filter)
     huge.addFilter(filter)
     huge_fuga.addFilter(filter)
@@ -35,7 +35,8 @@ def filter():
 
     # huge_fuga.debug('I am message from child')
     # huge.critical('I am message from root')
-    huge_fuga_piyo.debug("root mess")
+    # huge_fuga_piyo.debug("i am last child2")
+    huge_fuga.debug("third mgs")
 
 if __name__ == '__main__':
     filter()

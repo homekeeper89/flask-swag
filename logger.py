@@ -20,7 +20,7 @@ def three():
                 로거이름: %(name)s 파일경로: %(pathname)s \
                 프로세스ID: %(process)d 스레드ID : %(thread)d'
     logging.basicConfig(filename='./log/test.log',
-                        level=logging.DEBUG,
+                        level=logging.ERROR,
                         format=logformat)
     logging.debug('Hello World')
     # basicConfig를 통해서 로깅 내용을 수정할 수 있다.
@@ -75,5 +75,5 @@ def five():
 
 if __name__ == "__main__":
     #four()
-    five()
-    # three()
+    # five()
+    three()
