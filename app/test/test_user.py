@@ -20,5 +20,15 @@ class TestUser:
 
     def test_post_user(self, flask_client):
         url = '/api/v1/user/'
-        res = flask_client.post(url)
+        data =  {"user_id": "string",
+                "user_pw": "string",
+                "user_pw_": "string",
+                "user_hobby": "string"}
+        res = flask_client.post(url, data=json.dumps(data), headers = {'content-type':'application/json'})
+        assert res.status_code == 201
+    
+    def test_get_user(self, flask_client):
+        url = '/api/v1/user/'
+        res = flask_client.get(url)
         assert res.status_code == 200
+        print(res.get_data())
