@@ -3,6 +3,7 @@ from flask_restplus import Api
 from flask import Blueprint
 from flask_restplus import Resource
 from .main.controller import userApi as user_api_model
+from .main.controller import user_reg_api
 
 user_api = Blueprint('EntryPoint-Blueprint', __name__, url_prefix='/api/v1')
 
@@ -13,4 +14,5 @@ user_api_desc = Api(user_api,
                     doc='/docs/'
 )
 
-user_api_desc.add_namespace(user_api_model, path='/user')
+user_api_desc.add_namespace(user_api_model, path='/example')
+user_api_desc.add_namespace(user_reg_api, path='/user')

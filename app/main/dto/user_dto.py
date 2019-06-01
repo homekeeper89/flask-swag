@@ -8,3 +8,12 @@ class UserDto:
         'name':fields.String(required=True, description='name'),
         'hobby':fields.String(required=True, description='hobby')
     })
+
+class UserRegisterDto:
+    api = Namespace('user_register', description = 'User Register Data Object')
+    model = api.model('user_register',{
+        'user_id':fields.String(required=True, description = 'User id - recommend email'),
+        'user_pw':fields.String(required=True, description = 'User password'),
+        'user_pw_':fields.String(required=True, description = 'User password two'),
+        'user_hobby':fields.String(required=True, description='User Hobby info')
+    })

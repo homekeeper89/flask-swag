@@ -21,3 +21,9 @@ class UserAPI(Resource):
     def post(self):
         """ summary : register User data from client """
         return 'POST'
+
+@user_reg_api.route('/')
+class UserModel(Resource):
+    @user_reg_api.expect(user_dto_register)
+    def post(self):
+        return 'post'
